@@ -3,6 +3,7 @@ from aiogram.types import Message
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from utils.states import Reception
+from bot import bot
 router = Router()
 
 
@@ -55,4 +56,8 @@ async def guest_question(message: Message, state: FSMContext):
         formatted_text.append(f"{key}: {value}")
         for key, value in data.items()
     ]
-    await message.answer("\n".join(formatted_text))
+    await bot.send_message(370363468, '\n'.join(formatted_text))
+
+@router.message()
+async def handle_text(message: Message):
+    await message.reply("Извините, я не понимаю эту команду.")
