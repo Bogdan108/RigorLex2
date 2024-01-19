@@ -25,7 +25,7 @@ async def process_command_start(message: Message):
     # Этот хэндлер будет срабатывать на команду "/services"
 @router.message(Command(commands='contacts'))
 async def process_command_start(message: Message):
-    await message.answer(text=LEXICON_RU['contacts'])
+    await message.answer(text=LEXICON_RU['contacts'],parse_mode='HTML')
 
     # Этот хэндлер будет срабатывать на команду "/support"
 @router.message(Command(commands='support'))
